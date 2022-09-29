@@ -7,11 +7,11 @@ const IndexPage = ({location}) => {
   return (
     <Layout location={location}>
       <div className="fillHeight">
-        <Hero/>
+        {/* <Hero/>
         <About/>
         <Blog/>
         <Projects/>
-        <Contact/>
+        <Contact/> */}
       </div>
     </Layout>
   )

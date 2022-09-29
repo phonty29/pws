@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Head from './head';
+import {Head, Nav, Social, Email, Footer, Loader} from './index';
 import styled, { ThemeProvider } from 'styled-components';
 import {Head_Styled, theme} from '../styles';
 
@@ -49,17 +49,17 @@ const Layout = ({children, location}) => {
             <div id="root">
                 <ThemeProvider theme={theme}>
                     <Head_Styled/>
-                    {isLoading && isHome ? (
+                    {isLoading && isMainPage ? (
                     <Loader loaded={() => setIsLoading(false)} />
                     ) : (
                     <Layout_styled>
-                        <Nav/>
-                        <Social/>
-                        <Email/>
+                        <Nav isMainPage={isMainPage}/>
+                        {/* <Social/> */}
+                        {/* <Email/> */}
 
                         <div id="content">
                             {children}
-                            <Footer />
+                            {/* <Footer /> */}
                         </div>
                     </Layout_styled>
                     )}

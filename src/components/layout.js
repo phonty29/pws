@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
+import Head from './head';
 import styled, { ThemeProvider } from 'styled-components';
+import {Head_Styled, theme} from '../styles';
 
 const Layout_styled = styled.div`
   display: flex;
@@ -8,7 +10,7 @@ const Layout_styled = styled.div`
 `;
 
 const Layout = ({children, location}) => {
-    const isMainPage = location.pathname == '/';
+    const isMainPage = location.pathname === '/';
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         if(isLoading) 
@@ -44,6 +46,25 @@ const Layout = ({children, location}) => {
     return (
         <>  
             <Head/>
+            <div id="root">
+                <ThemeProvider theme={theme}>
+                    <Head_Styled/>
+                    {isLoading && isHome ? (
+                    <Loader loaded={() => setIsLoading(false)} />
+                    ) : (
+                    <Layout_styled>
+                        <Nav/>
+                        <Social/>
+                        <Email/>
+
+                        <div id="content">
+                            {children}
+                            <Footer />
+                        </div>
+                    </Layout_styled>
+                    )}
+                </ThemeProvider>
+            </div>
         </>
     );
 };

@@ -19,9 +19,9 @@ const variables = css`
     --dark-slate: #495670;
     --yellow: #ebe30c;
     --browny: #ad7032;
-    --strong-black: #ffffff;
+    --strong-black: #050505;
     --violet: #663399;
-    --violet-tint: rgba(255, 100, 209, 0.1);
+    --violet-tint: rgba(255, 100, 209, 0.5);
     --blue: #57cbff;
     --font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui,
       sans-serif;

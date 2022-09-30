@@ -17,7 +17,7 @@ const StyledSocialList = styled.ul`
     width: 1px;
     height: 90px;
     margin: 0 auto;
-    background-color: var(--light-slate);
+    background-color: var(--strong-black);
   }
   li {
     &:last-of-type {
@@ -37,8 +37,8 @@ const StyledSocialList = styled.ul`
   }
 `;
 
-const Social = ({ isHome }) => (
-  <Side isHome={isHome} orientation="left">
+const Social = ({ isMainPage }) => (
+  <Side isMainPage={isMainPage} orientation="left">
     <StyledSocialList>
       {socialMedia &&
         socialMedia.map(({ url, name }, i) => (

@@ -58,7 +58,7 @@ const HamburgerButton_Styled = styled.button`
     width: var(--hamburger-width);
     height: 2px;
     border-radius: var(--border-radius);
-    background-color: var(--pink);
+    background-color: var(--violet);
     transition-duration: 0.22s;
     transition-property: transform;
     transition-delay: ${props => (props.menuOpen ? `0.12s` : `0s`)};
@@ -76,7 +76,7 @@ const HamburgerButton_Styled = styled.button`
       width: var(--hamburger-width);
       height: 2px;
       border-radius: 4px;
-      background-color: var(--pink);
+      background-color: var(--violet);
       transition-timing-function: ease;
       transition-duration: 0.15s;
       transition-property: transform;
@@ -120,7 +120,7 @@ const Sidebar_Styled = styled.aside`
     ${({ theme }) => theme.mixins.flexCenter};
     width: 100%;
     flex-direction: column;
-    color: var(--pink);
+    color: var(--violet);
     font-family: var(--font-mono);
     text-align: center;
   }

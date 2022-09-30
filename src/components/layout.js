@@ -54,7 +54,7 @@ const Layout = ({children, location}) => {
                     ) : (
                     <Layout_styled>
                         <Nav isMainPage={isMainPage}/>
-                        {/* <Social/> */}
+                        <Social/>
                         {/* <Email/> */}
 
                         <div id="content">

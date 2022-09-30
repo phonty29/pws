@@ -1,7 +1,14 @@
 import { css } from 'styled-components';
 
-//Change all the fonts 
-//--font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui,
+//dark-navy -> white
+//navy -> whitesmoke
+//light-navy -> snow
+//lightest-navy -> ivory
+//navy-shadow -> white-shadow
+//lightest-slate -> strong-black: #ffffff;
+//light-slate -> browny: #ad7032;
+//green -> violet: #663399;
+//green-tint -> violet-tint: rgba(255, 100, 209, 0.1)
 const variables = css`
   :root {
     --white: #ffffff;
@@ -10,12 +17,11 @@ const variables = css`
     --ivory: #FFFFF0;
     --white-shadow: rgba(20,20,20,0.4);
     --dark-slate: #495670;
-    --slate: #8892b0;
-    --light-slate: #a8b2d1;
-    --lightest-slate: #ccd6f6;
-    --white: #e6f1ff;
-    --pink: #f57dff;
-    --pink-tint: rgba(255, 100, 209, 0.1);
+    --yellow: #ebe30c;
+    --browny: #ad7032;
+    --strong-black: #ffffff;
+    --violet: #663399;
+    --violet-tint: rgba(255, 100, 209, 0.1);
     --blue: #57cbff;
     --font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui,
       sans-serif;

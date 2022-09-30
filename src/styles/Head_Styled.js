@@ -1,13 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
-// import fonts from './fonts';
+import fonts from './fonts';
 import variables from './variables';
 import TransitionStyles from './TransitionStyles';
 import PrismStyles from './PrismStyles';
 
-
-//Don't forget to add fonts
-// ${fonts};
 const GlobalStyle = createGlobalStyle`
+  ${fonts};
   ${variables};
   html {
     box-sizing: border-box;

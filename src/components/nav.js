@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
-// import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled, { css } from 'styled-components';
-// import { navLinks } from '@config'; //create links file
-// import { loaderDelay } from '@utils'; write in the page
+import {navbarLinks} from '../config';
 import { useScrollDirection} from '../hooks';
 import { Menu } from './index';
 
 const Header_Styled = styled.header`
-  ${({ theme }) => theme.mixins.flexBetween};
+  ${({ theme }) => theme.mixins.flexCenter};
   position: fixed;
   top: 0;
   z-index: 11;
   padding: 0px 50px;
   width: 100%;
   height: var(--nav-height);
-  background-color: rgba(10, 25, 47, 0.85);
+  background-color: rgba(255, 255, 255, 0.85);
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
@@ -35,8 +33,8 @@ const Header_Styled = styled.header`
       css`
         height: var(--nav-scroll-height);
         transform: translateY(0px);
-        background-color: rgba(10, 25, 47, 0.85);
-        box-shadow: 0 10px 30px -10px var(--navy-shadow);
+        background-color: rgba(255, 255, 255, 0.85);
+        box-shadow: 0 10px 30px -10px var(--white-shadow);
       `};
     ${props =>
     props.scrollDirection === 'down' &&
@@ -44,38 +42,21 @@ const Header_Styled = styled.header`
       css`
         height: var(--nav-scroll-height);
         transform: translateY(calc(var(--nav-scroll-height) * -1));
-        box-shadow: 0 10px 30px -10px var(--navy-shadow);
+        box-shadow: 0 10px 30px -10px var(--white-shadow);
       `};
   }
 `;
 
 const Nav_Styled = styled.nav`
-  ${({ theme }) => theme.mixins.flexBetween};
-  position: relative;
-  width: 100%;
-  color: var(--lightest-slate);
-  font-family: var(--font-mono);
-  counter-reset: item 0;
-  z-index: 12;
-  .logo {
     ${({ theme }) => theme.mixins.flexCenter};
-    a {
-      color: var(--green);
-      width: 42px;
-      height: 42px;
-      &:hover,
-      &:focus {
-        svg {
-          fill: var(--green-tint);
-        }
-      }
-      svg {
-        fill: none;
-        transition: var(--transition);
-        user-select: none;
-      }
+    position: relative;
+    width: 100%;
+    color: var(--strong-black);
+    font-family: var(--font-mono);
+    z-index: 12;
+    @media (max-width: 768px) {
+      ${({ theme }) => theme.mixins.flexEnd};
     }
-  }
 `;
 
 const Links_Styled = styled.div`
@@ -92,24 +73,17 @@ const Links_Styled = styled.div`
     li {
       margin: 0 5px;
       position: relative;
-      counter-increment: item 1;
-      font-size: var(--fz-xs);
+      font-size: var(--fz-md);
       a {
+        color: var(--strong-black);
         padding: 10px;
-        &:before {
-          content: '0' counter(item) '.';
-          margin-right: 5px;
-          color: var(--green);
-          font-size: var(--fz-xxs);
-          text-align: right;
-        }
       }
     }
   }
   .resume-button {
     ${({ theme }) => theme.mixins.smallButton};
     margin-left: 15px;
-    font-size: var(--fz-xs);
+    font-size: var(--fz-md);
   }
 `;
 
@@ -123,10 +97,6 @@ const Nav = ({ isMainPage }) => {
   };
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
-
     const timeout = setTimeout(() => {
       setIsMounted(true);
     }, 100);
@@ -139,23 +109,9 @@ const Nav = ({ isMainPage }) => {
     };
   }, []);
 
-  const timeout = isHome ? loaderDelay : 0;
-  const fadeClass = isHome ? 'fade' : '';
-  const fadeDownClass = isHome ? 'fadedown' : '';
-
-  const Logo = (
-    <div className="logo" tabIndex="-1">
-      {isHome ? (
-        <a href="/" aria-label="home">
-          <IconLogo />
-        </a>
-      ) : (
-        <Link to="/" aria-label="home">
-          <IconLogo />
-        </Link>
-      )}
-    </div>
-  );
+  const timeout = isMainPage ? 2000 : 0;
+  const fadeClass = isMainPage ? 'fade' : '';
+  const fadeDownClass = isMainPage ? 'fadedown' : '';
 
   const ResumeLink = (
     <a className="resume-button" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
@@ -164,44 +120,17 @@ const Nav = ({ isMainPage }) => {
   );
 
   return (
-    <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
-      <StyledNav>
-        {prefersReducedMotion ? (
+    <Header_Styled scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
+      <Nav_Styled>
           <>
-            {Logo}
-
-            <StyledLinks>
-              <ol>
-                {navLinks &&
-                  navLinks.map(({ url, name }, i) => (
-                    <li key={i}>
-                      <Link to={url}>{name}</Link>
-                    </li>
-                  ))}
-              </ol>
-              <div>{ResumeLink}</div>
-            </StyledLinks>
-
-            <Menu />
-          </>
-        ) : (
-          <>
-            <TransitionGroup component={null}>
-              {isMounted && (
-                <CSSTransition classNames={fadeClass} timeout={timeout}>
-                  <>{Logo}</>
-                </CSSTransition>
-              )}
-            </TransitionGroup>
-
-            <StyledLinks>
+            <Links_Styled>
               <ol>
                 <TransitionGroup component={null}>
                   {isMounted &&
-                    navLinks &&
-                    navLinks.map(({ url, name }, i) => (
+                    navbarLinks &&
+                    navbarLinks.map(({ url, name }, i) => (
                       <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
-                        <li key={i} style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
+                        <li key={i} style={{ transitionDelay: `${isMainPage ? i * 100 : 0}ms` }}>
                           <Link to={url}>{name}</Link>
                         </li>
                       </CSSTransition>
@@ -212,13 +141,13 @@ const Nav = ({ isMainPage }) => {
               <TransitionGroup component={null}>
                 {isMounted && (
                   <CSSTransition classNames={fadeDownClass} timeout={timeout}>
-                    <div style={{ transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms` }}>
+                    <div style={{ transitionDelay: `${isMainPage ? navbarLinks.length * 100 : 0}ms` }}>
                       {ResumeLink}
                     </div>
                   </CSSTransition>
                 )}
               </TransitionGroup>
-            </StyledLinks>
+            </Links_Styled>
 
             <TransitionGroup component={null}>
               {isMounted && (
@@ -228,14 +157,9 @@ const Nav = ({ isMainPage }) => {
               )}
             </TransitionGroup>
           </>
-        )}
-      </StyledNav>
-    </StyledHeader>
+      </Nav_Styled>
+    </Header_Styled>
   );
-};
-
-Nav.propTypes = {
-  isHome: PropTypes.bool,
 };
 
 export default Nav;

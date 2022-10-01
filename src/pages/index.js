@@ -1,15 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Layout} from '../components';
-import { Hero, About, Blog, Projects, Contact } from '../components/sections';
+import { Hero, About, Jobs, Blog, Projects, Contact } from '../components/sections';
 
 const IndexPage = ({location}) => {
   return (
     <Layout location={location}>
       <div className="fillHeight">
-        {/* <Hero/>
+        <Hero/>
         <About/>
-        <Blog/>
+        <Jobs/>
+        {/* <Blog/>
         <Projects/>
         <Contact/> */}
       </div>

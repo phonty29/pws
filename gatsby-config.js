@@ -23,10 +23,10 @@ module.exports = {
         name: 'AmedovBekmuhamet',
         short_name: 'AmedovBekmuhamet',
         start_url: '/',
-        background_color: colors.darkNavy,
-        theme_color: colors.navy,
+        background_color: colors.white,
+        theme_color: colors.whitesmoke,
         display: 'minimal-ui',
-        icon: 'src/images/logo.png',
+        icon: 'src/assets/images/logo.png',
       },
     },
     `gatsby-plugin-offline`,
@@ -34,7 +34,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/assets/images`,
       },
     },
     // {

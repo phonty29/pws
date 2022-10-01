@@ -63,17 +63,17 @@ const mixins = {
     text-decoration-skip-ink: auto;
     position: relative;
     transition: var(--transition);
-    color: var(--pink);
+    color: var(--violet);
     &:hover,
     &:focus,
     &:active {
-      color: var(--pink);
+      color: var(--violet);
       outline: 0;
       &:after {
         width: 100%;
       }
       & > * {
-        color: var(--pink) !important;
+        color: var(--violet) !important;
         transition: var(--transition);
       }
     }
@@ -84,7 +84,7 @@ const mixins = {
       height: 1px;
       position: relative;
       bottom: 0.37em;
-      background-color: var(--pink);
+      background-color: var(--violet);
       transition: var(--transition);
       opacity: 0.5;
     }
@@ -139,11 +139,11 @@ const mixins = {
   `,
 
   boxShadow: css`
-    box-shadow: 0 10px 30px -15px var(--navy-shadow);
+    box-shadow: 0 10px 30px -15px var(--white-shadow);
     transition: var(--transition);
     &:hover,
     &:focus {
-      box-shadow: 0 20px 30px -15px var(--navy-shadow);
+      box-shadow: 0 20px 30px -15px var(--white-shadow);
     }
   `,
 

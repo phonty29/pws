@@ -78,6 +78,9 @@ const Links_Styled = styled.div`
         color: var(--strong-black);
         padding: 10px;
       }
+      a:hover {
+        color: var(--violet);
+      }
     }
   }
   .resume-button {

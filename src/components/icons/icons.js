@@ -1,21 +1,18 @@
-import {IconInstagram} from './instagram';
-import {IconTwitter} from './twitter';
-import {IconLinkedin} from './linkedin';
-import {IconGitHub} from './github';
-import {IconFacebook} from './facebook';
+import React from 'react';
+import {IconInstagram, IconTwitter, IconLinkedin, IconGitHub, IconFacebook,IconExternal } from './index';
 
 const Icon = ({ name }) => {
     switch (name) {
-      case 'External':
-        return <IconExternal />;
+      case 'Facebook':
+        return <IconFacebook />;   
       case 'GitHub':
-        return <IconGitHub />;
+        return <IconGitHub />;  
       case 'Instagram':
-        return <IconInstagram />;
+        return <IconInstagram />; 
       case 'Linkedin':
         return <IconLinkedin />;
       case 'Twitter':
-        return <IconTwitter />;
+        return <IconTwitter />;          
       default:
         return <IconExternal />;
     }

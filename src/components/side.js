@@ -3,16 +3,17 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 
 const Side_Styled = styled.div`
-  width: 40px;
+  height: 40px;
   position: fixed;
-  bottom: 0;
-  left: ${props => (props.orientation === 'left' ? '40px' : 'auto')};
-  right: ${props => (props.orientation === 'left' ? 'auto' : '40px')};
+  left: ${props => (props.orientation === 'top' ? '0' : 'auto')};
+  right: ${props => (props.orientation === 'top' ? 'auto' : '0')};
+  top: ${props => (props.orientation === 'top' ? '100px' : 'auto')};
+  bottom: ${props => (props.orientation === 'top' ? 'auto' : '50px')};
   z-index: 10;
-  color: var(--light-slate);
+  color: var(--violet);
   @media (max-width: 1080px) {
-    left: ${props => (props.orientation === 'left' ? '20px' : 'auto')};
-    right: ${props => (props.orientation === 'left' ? 'auto' : '20px')};
+    top: ${props => (props.orientation === 'top' ? '100px' : 'auto')};
+    bottom: ${props => (props.orientation === 'top' ? 'auto' : '25px')};
   }
   @media (max-width: 768px) {
     display: none;

@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { socialMedia } from '../config';
-import { Side } from '../components';
-import { Icon } from '../components/icons';
+import Side from './side';
+import Icon from './icons/icons';
 
-const StyledSocialList = styled.ul`
+const Social_Styled = styled.ul`
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   align-items: center;
   margin: 0;
   padding: 0;
@@ -14,14 +14,14 @@ const StyledSocialList = styled.ul`
   &:after {
     content: '';
     display: block;
-    width: 1px;
-    height: 90px;
+    width: 90px;
+    height: 1px;
     margin: 0 auto;
-    background-color: var(--strong-black);
+    background-color: var(--violet);
   }
   li {
     &:last-of-type {
-      margin-bottom: 20px;
+      margin-left: 20px;
     }
     a {
       padding: 10px;
@@ -38,8 +38,8 @@ const StyledSocialList = styled.ul`
 `;
 
 const Social = ({ isMainPage }) => (
-  <Side isMainPage={isMainPage} orientation="left">
-    <StyledSocialList>
+  <Side isMainPage={isMainPage} orientation="top">
+    <Social_Styled>
       {socialMedia &&
         socialMedia.map(({ url, name }, i) => (
           <li key={i}>
@@ -48,7 +48,7 @@ const Social = ({ isMainPage }) => (
             </a>
           </li>
         ))}
-    </StyledSocialList>
+    </Social_Styled>
   </Side>
 );
 

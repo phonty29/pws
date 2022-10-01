@@ -3,20 +3,24 @@ module.exports = {
 
   socialMedia: [
     {
-      name: 'GitHub',
-      url: 'https://github.com/phonty29',
+      name: 'Facebook',
+      url: 'https://www.linkedin.com/in/bekmuhamet-amedov-4a5776244/',
     },
     {
-      name: 'Instagram',
-      url: 'https://www.instagram.com/phonty29',
+      name: 'Linkedin',
+      url: 'https://www.linkedin.com/in/bekmuhamet-amedov-4a5776244/',
     },
     {
       name: 'Twitter',
       url: 'https://twitter.com/BekmuhametA',
     },
     {
-      name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/bekmuhamet-amedov-4a5776244/',
+      name: 'Instagram',
+      url: 'https://www.instagram.com/phonty29',
+    },    
+    {
+      name: 'GitHub',
+      url: 'https://github.com/phonty29',
     },
   ],
   
@@ -40,9 +44,9 @@ module.exports = {
   ],
   
   colors: {
-    green: '#64ffda',
-    navy: '#0a192f',
-    darkNavy: '#020c1b',
+    violet: '#663399',
+    whitesmoke: '#f5f5f5',
+    white: '#ffffff',
   },
   
   scrollRevealConfig: (delay = 200, viewFactor = 0.25) => ({

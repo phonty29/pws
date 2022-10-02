@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
 
 const button = css`
-  color: var(--green);
+  color: var(--violet);
   background-color: transparent;
-  border: 1px solid var(--green);
+  border: 1px solid var(--violet);
   border-radius: var(--border-radius);
   font-size: var(--fz-xs);
   font-family: var(--font-mono);
@@ -15,7 +15,7 @@ const button = css`
   &:hover,
   &:focus,
   &:active {
-    background-color: var(--green-tint);
+    background-color: var(--violet-tint);
     outline: none;
   }
   &:after {
@@ -160,7 +160,7 @@ const mixins = {
         content: '▹';
         position: absolute;
         left: 0;
-        color: var(--green);
+        color: var(--violet);
       }
     }
   `,

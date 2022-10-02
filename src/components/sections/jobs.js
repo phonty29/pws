@@ -3,8 +3,26 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 import { scrollRevealConfig } from '../../config';
+import ScrollReveal from 'scrollreveal';
 
 const scrollRevealing = typeof window === 'undefined' ? null : ScrollReveal();
+
+const KEY_CODES = {
+  ARROW_LEFT: 'ArrowLeft',
+  ARROW_LEFT_IE11: 'Left',
+  ARROW_RIGHT: 'ArrowRight',
+  ARROW_RIGHT_IE11: 'Right',
+  ARROW_UP: 'ArrowUp',
+  ARROW_UP_IE11: 'Up',
+  ARROW_DOWN: 'ArrowDown',
+  ARROW_DOWN_IE11: 'Down',
+  ESCAPE: 'Escape',
+  ESCAPE_IE11: 'Esc',
+  TAB: 'Tab',
+  SPACE: ' ',
+  SPACE_IE11: 'Spacebar',
+  ENTER: 'Enter',
+};
 
 const Jobs_Styled = styled.section`
   max-width: 700px;
@@ -15,27 +33,10 @@ const Jobs_Styled = styled.section`
     }
     // Prevent container from jumping
     @media (min-width: 700px) {
-      min-height: 340px;
+      height: fit-content;
     }
   }
 `;
-
-const KEY_CODES = {
-    ARROW_LEFT: 'ArrowLeft',
-    ARROW_LEFT_IE11: 'Left',
-    ARROW_RIGHT: 'ArrowRight',
-    ARROW_RIGHT_IE11: 'Right',
-    ARROW_UP: 'ArrowUp',
-    ARROW_UP_IE11: 'Up',
-    ARROW_DOWN: 'ArrowDown',
-    ARROW_DOWN_IE11: 'Down',
-    ESCAPE: 'Escape',
-    ESCAPE_IE11: 'Esc',
-    TAB: 'Tab',
-    SPACE: ' ',
-    SPACE_IE11: 'Spacebar',
-    ENTER: 'Enter',
-  };
 
 const List_Styled = styled.div`
   position: relative;
@@ -84,9 +85,9 @@ const Button_Styled = styled.button`
   width: 100%;
   height: var(--tab-height);
   padding: 0 20px 2px;
-  border-left: 2px solid var(--lightest-navy);
+  border-left: 2px solid var(--ivory);
   background-color: transparent;
-  color: ${({ isActive }) => (isActive ? 'var(--green)' : 'var(--slate)')};
+  color: ${({ isActive }) => (isActive ? 'var(--violet)' : 'var(--strong-black)')};
   font-family: var(--font-mono);
   font-size: var(--fz-xs);
   text-align: left;
@@ -99,12 +100,12 @@ const Button_Styled = styled.button`
     min-width: 120px;
     padding: 0 15px;
     border-left: 0;
-    border-bottom: 2px solid var(--lightest-navy);
+    border-bottom: 2px solid var(--ivory);
     text-align: center;
   }
   &:hover,
   &:focus {
-    background-color: var(--light-navy);
+    background-color: var(--snow);
   }
 `;
 
@@ -116,7 +117,7 @@ const Highlight_Styled = styled.div`
   width: 2px;
   height: var(--tab-height);
   border-radius: var(--border-radius);
-  background: var(--green);
+  background: var(--violet);
   transform: translateY(calc(${({ activeTabId }) => activeTabId} * var(--tab-height)));
   transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition-delay: 0.1s;
@@ -156,12 +157,12 @@ const Panel_Styled = styled.div`
     font-weight: 500;
     line-height: 1.3;
     .company {
-      color: var(--green);
+      color: var(--violet);
     }
   }
   .range {
     margin-bottom: 25px;
-    color: var(--light-slate);
+    color: var(--browny);
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
   }
@@ -198,10 +199,6 @@ const Jobs = () => {
   const revealContainer = useRef(null);
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
-
     scrollRevealing.reveal(revealContainer.current, scrollRevealConfig());
   }, []);
 
@@ -246,7 +243,7 @@ const Jobs = () => {
 
   return (
     <Jobs_Styled id="jobs" ref={revealContainer}>
-      <h2 className="numbered-heading">Where I’ve Worked</h2>
+      <h2>My job experience</h2>
 
       <div className="inner">
         <List_Styled role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyDown(e)}>

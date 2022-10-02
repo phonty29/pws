@@ -8,5 +8,6 @@ import IconTwitter from './twitter';
 import IconExternal from './external';
 import IconFolder from './folder';
 import IconFacebook from './facebook';
+import IconBookmark from './bookmark';
 
-export {IconLoader, IconGitHub, IconFork, IconInstagram, IconLinkedin, IconStar, IconTwitter, IconExternal, IconFolder, IconFacebook};
+export {IconLoader, IconGitHub, IconFork, IconInstagram, IconLinkedin, IconStar, IconTwitter, IconExternal, IconFolder, IconFacebook, IconBookmark};

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Hero_Styled = styled.section`
   ${({ theme }) => theme.mixins.flexCenter};
   flex-direction: column;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1)), url("./hero.jpg");
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1)), ${props => (props.location.pathname === '/' ? 'url(./hero.jpg)' : '')};
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -37,8 +37,9 @@ const Hero_Styled = styled.section`
   }
 `;
 
-const Hero = () => {
+const Hero = ({location}) => {
   const [isMounted, setIsMounted] = useState(false);
+  console.log("HERO", location);
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsMounted(true), 1000);
@@ -64,7 +65,7 @@ const Hero = () => {
   const items = [one, two, three, four];
 
   return (
-    <Hero_Styled>
+    <Hero_Styled location={location}>
         <TransitionGroup component={null}>
           {isMounted &&
             items.map((item, i) => (

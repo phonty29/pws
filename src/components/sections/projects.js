@@ -136,7 +136,7 @@ const Projects_Styled = styled.li`
     padding: 25px;
     border-radius: var(--border-radius);
     background-color: var(--snow);
-    color: var(--browny);
+    color: var(--strong-black);
     font-size: var(--fz-lg);
     @media (max-width: 768px) {
       padding: 20px 0;
@@ -213,10 +213,12 @@ const Projects_Styled = styled.li`
     @media (max-width: 768px) {
       grid-column: 1 / -1;
       height: 100%;
+      opacity: 0.25;
     }
     a {
       width: 100%;
       height: 100%;
+      background-color: var(--violet);
       border-radius: var(--border-radius);
       vertical-align: middle;
       &:hover,
@@ -226,6 +228,7 @@ const Projects_Styled = styled.li`
         &:before,
         .img {
           background: transparent;
+          filter: none;
         }
       }
       &:before {
@@ -239,14 +242,19 @@ const Projects_Styled = styled.li`
         bottom: 0;
         z-index: 3;
         transition: var(--transition);
+        background-color: var(--violet-tint);
+        mix-blend-mode: screen;
       }
     }
     .img {
       border-radius: var(--border-radius);
+      mix-blend-mode: multiply;
+      filter: grayscale(100%) contrast(1) brightness(90%);
       @media (max-width: 768px) {
         object-fit: cover;
         width: auto;
         height: 100%;
+        filter: grayscale(100%) contrast(1) brightness(50%);
       }
     }
   }
@@ -265,7 +273,7 @@ const Projects = () => {
               title
               cover {
                 childImageSharp {
-                  gatsbyImageData(width: 700, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                  gatsbyImageData(width: 700)
                 }
               }
               tech
@@ -291,16 +299,19 @@ const Projects = () => {
 
   return (
     <section id="projects">
-      <h2 className="numbered-heading" ref={revealTitle}>
-        Some Things I’ve Built
-      </h2>
+      <div className="section-header">
+          <h2>Some Things I’ve Built</h2>
+          <a className="inline-link archive-link" href="/projects" target="_blank">
+              view all my projects
+          </a>
+        </div>
 
       <Grid_Styled>
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
             const { frontmatter, html } = node;
             const { external, title, tech, github, cover, cta } = frontmatter;
-
+            const image = getImage(cover);
             return (
               <Projects_Styled key={i} ref={el => (revealProjects.current[i] = el)}>
                 <div className="project-content">
@@ -346,7 +357,7 @@ const Projects = () => {
 
                 <div className="project-image">
                   <a href={external ? external : github ? github : '#'}>
-                    <img src={cover} alt={title} className="img" />
+                    <GatsbyImage image={image} alt={title} className="img" />
                   </a>
                 </div>
               </Projects_Styled>

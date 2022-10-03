@@ -39,7 +39,6 @@ const Hero_Styled = styled.section`
 
 const Hero = ({location}) => {
   const [isMounted, setIsMounted] = useState(false);
-  console.log("HERO", location);
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsMounted(true), 1000);

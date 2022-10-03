@@ -21,7 +21,7 @@ const Social_Styled = styled.ul`
   }
   li {
     &:last-of-type {
-      margin-left: 20px;
+      margin: 0 0 0 20px;
     }
     a {
       padding: 10px;
@@ -32,6 +32,19 @@ const Social_Styled = styled.ul`
       svg {
         width: 20px;
         height: 20px;
+      }
+    }
+  }
+  @media (max-width: 1600px) {
+    flex-direction: column;
+    justify-content: center;
+    &:after {
+      width: 1px;
+      height: 90px;
+    }
+    li {
+      &:last-of-type {
+        margin: 0 0 20px 0;
       }
     }
   }

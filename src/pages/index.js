@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Layout} from '../components';
 import { Hero, About, Jobs, Blog, Projects, Contact } from '../components/sections';
 

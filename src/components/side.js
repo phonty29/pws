@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const Side_Styled = styled.div`
   height: 40px;
+  width: auto;
   position: fixed;
   left: ${props => (props.orientation === 'top' ? '0' : 'auto')};
   right: ${props => (props.orientation === 'top' ? 'auto' : '0')};
@@ -11,9 +12,12 @@ const Side_Styled = styled.div`
   bottom: ${props => (props.orientation === 'top' ? 'auto' : '50px')};
   z-index: 10;
   color: var(--violet);
-  @media (max-width: 1080px) {
-    top: ${props => (props.orientation === 'top' ? '100px' : 'auto')};
-    bottom: ${props => (props.orientation === 'top' ? 'auto' : '25px')};
+  @media (max-width: 1600px) {
+    width: ${props => (props.orientation === 'top' ? '40px' : 'auto')};
+    height: ${props => (props.orientation === 'top' ? 'auto' : '40px')};;
+    top: auto;
+    bottom: ${props => (props.orientation === 'top' ? '0' : '25px')};
+    left: ${props => (props.orientation === 'top' ? '20px' : 'auto')};
   }
   @media (max-width: 768px) {
     display: none;

@@ -20,6 +20,9 @@ const Header_Styled = styled.header`
   user-select: auto !important;
   backdrop-filter: blur(10px);
   transition: var(--transition);
+  @media (max-width: 1600px) {
+    height: 75px;
+  }
   @media (max-width: 1080px) {
     padding: 0 40px;
   }
@@ -87,6 +90,11 @@ const Links_Styled = styled.div`
     ${({ theme }) => theme.mixins.smallButton};
     margin-left: 15px;
     font-size: var(--fz-md);
+  }
+  @media (max-width: 1600px) {
+    ol li {
+      font-size: var(--fz-sm);
+    }
   }
 `;
 

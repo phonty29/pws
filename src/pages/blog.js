@@ -119,15 +119,15 @@ const Post_Styled = styled.li`
   }
 `;
 
-const Blogs = ({ location, data }) => {
+const Blog = ({ location, data }) => {
   const posts = data.allMarkdownRemark.edges;
   return (
     <Layout location={location}>
-      <Helmet title="Blogs" />
+      <Helmet title="Blog" />
 
       <Main_Styled>
         <header>
-          <h1 className="big-heading">Blogs</h1>
+          <h1 className="big-heading">Blog</h1>
           <p className="subtitle">
             <span>
               a collection of my posts
@@ -159,7 +159,7 @@ const Blogs = ({ location, data }) => {
                       <ul className="post__tags">
                         {tags.map((tag, i) => (
                           <li key={i}>
-                            <Link to={`/blogs/tags/${kebabCase(tag)}/`} className="inline-link">
+                            <Link to={`/blog/tags/${kebabCase(tag)}/`} className="inline-link">
                               #{tag}
                             </Link>
                           </li>
@@ -176,12 +176,12 @@ const Blogs = ({ location, data }) => {
   );
 };
 
-export default Blogs;
+export default Blog;
 
 export const pageQuery = graphql`
   {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/blogs/posts/" } }
+      filter: { fileAbsolutePath: { regex: "/blog/posts/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {

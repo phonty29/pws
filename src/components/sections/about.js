@@ -102,7 +102,12 @@ const About = () => {
 
   return (
     <About_Styled id="about" ref={revealContainer}>
-      <h2>Some information about me</h2>
+      <div className="section-header">
+        <h2>Some information about me</h2>
+        <a className="inline-link archive-link" href="/about" target="_blank">
+            more about me
+        </a>
+      </div>
 
       <div className="inner">
         <Text_Styled>

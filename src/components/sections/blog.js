@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition } from 'react-transition-group';
 import kebabCase from 'lodash/kebabCase';
 import styled from 'styled-components';
@@ -11,7 +11,6 @@ const scrollRevealing = typeof window === 'undefined' ? null : ScrollReveal();
 
 const Blog_Styled = styled.section`
   max-width: 900px;
-  text-align: center;
   footer {
     ${({ theme }) => theme.mixins.flexBetween};
     width: 100%;
@@ -123,7 +122,7 @@ const Blog = () => {
   const data = useStaticQuery(graphql`
     query {
       posts: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/blogs/posts/" } }
+        filter: { fileAbsolutePath: { regex: "/content/blog/posts/" } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
@@ -149,10 +148,12 @@ const Blog = () => {
 
   return (
       <Blog_Styled id="blog" ref={revealContainer}>
-        <h2>Blog</h2>
-        <Link className="inline-link archive-link" to="/blogs">
-            see my blog
-        </Link>
+        <div className="section-header">
+          <h2>I like to share things in my head</h2>
+          <a className="inline-link archive-link" href="/blog" target="_blank">
+              see my blog
+          </a>
+        </div>
 
         <Grid_Styled>
           {postsData.length > 0 &&
@@ -179,9 +180,9 @@ const Blog = () => {
                           <ul className="post__tags">
                             {tags.map((tag, i) => (
                               <li key={i}>
-                                <Link to={`/blogs/tags/${kebabCase(tag)}/`} className="inline-link">
+                                <a href={`/blog/tags/${kebabCase(tag)}/`} className="inline-link" target="_blank">
                                   #{tag}
-                                </Link>
+                                </a>
                               </li>
                             ))}
                           </ul>

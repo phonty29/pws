@@ -1,7 +1,7 @@
 ---
 title: I continue my blog
 date: 2022-10-02
-slug: /blogs/my-third-post
+slug: /blog/my-fourth-post
 tags:
   - Life
   - Foolish
@@ -12,4 +12,4 @@ The topic of posts is anything, 'cause I'm interested in almost everything.
 But I would try not to touch religion, politics and any sensitive subject. 
 I hope that it will be mostly funny, so take the picture of this funny orca.
 
-![Alt text](./third-post.jpg)
+![Alt text](./fourth-post.jpg)

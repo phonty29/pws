@@ -1,7 +1,7 @@
 ---
 title: I continue my blog
 date: 2022-10-02
-slug: /blogs/my-second-post
+slug: /blog/my-second-post
 tags:
   - Life
   - Foolish

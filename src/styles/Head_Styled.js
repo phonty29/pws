@@ -146,6 +146,13 @@ const GlobalStyle = createGlobalStyle`
     color: var(--browny);
     line-height: 1.1;
   }
+  .section-header {
+    display: flex;
+    align-items: center;
+    & > * {
+      margin-right: 20px;
+    }
+  }
   .big-heading {
     margin: 0;
     font-size: clamp(40px, 8vw, 80px);

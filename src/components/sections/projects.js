@@ -4,7 +4,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { scrollRevealConfig } from '../../config';
 import ScrollReveal from 'scrollreveal';
-import { Icon } from '../icons/icons';
+import Icon from '../icons/icons';
 
 const scrollRevealing = typeof window === 'undefined' ? null : ScrollReveal();
 
@@ -101,13 +101,13 @@ const Projects_Styled = styled.li`
   }
   .project-overline {
     margin: 10px 0;
-    color: var(--green);
+    color: var(--violet);
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
     font-weight: 400;
   }
   .project-title {
-    color: var(--lightest-slate);
+    color: var(--strong-black);
     font-size: clamp(24px, 5vw, 28px);
     @media (min-width: 768px) {
       margin: 0 0 20px;
@@ -135,8 +135,8 @@ const Projects_Styled = styled.li`
     z-index: 2;
     padding: 25px;
     border-radius: var(--border-radius);
-    background-color: var(--light-navy);
-    color: var(--light-slate);
+    background-color: var(--snow);
+    color: var(--browny);
     font-size: var(--fz-lg);
     @media (max-width: 768px) {
       padding: 20px 0;
@@ -164,7 +164,7 @@ const Projects_Styled = styled.li`
     list-style: none;
     li {
       margin: 0 20px 5px 0;
-      color: var(--light-slate);
+      color: var(--browny);
       font-family: var(--font-mono);
       font-size: var(--fz-xs);
       white-space: nowrap;
@@ -173,7 +173,7 @@ const Projects_Styled = styled.li`
       margin: 10px 0;
       li {
         margin: 0 10px 5px 0;
-        color: var(--lightest-slate);
+        color: var(--strong-black);
       }
     }
   }
@@ -183,7 +183,7 @@ const Projects_Styled = styled.li`
     position: relative;
     margin-top: 10px;
     margin-left: -10px;
-    color: var(--lightest-slate);
+    color: var(--strong-black);
     a {
       ${({ theme }) => theme.mixins.flexCenter};
       padding: 10px;
@@ -213,12 +213,10 @@ const Projects_Styled = styled.li`
     @media (max-width: 768px) {
       grid-column: 1 / -1;
       height: 100%;
-      opacity: 0.25;
     }
     a {
       width: 100%;
       height: 100%;
-      background-color: var(--green);
       border-radius: var(--border-radius);
       vertical-align: middle;
       &:hover,
@@ -228,7 +226,6 @@ const Projects_Styled = styled.li`
         &:before,
         .img {
           background: transparent;
-          filter: none;
         }
       }
       &:before {
@@ -242,19 +239,14 @@ const Projects_Styled = styled.li`
         bottom: 0;
         z-index: 3;
         transition: var(--transition);
-        background-color: var(--navy);
-        mix-blend-mode: screen;
       }
     }
     .img {
       border-radius: var(--border-radius);
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1) brightness(90%);
       @media (max-width: 768px) {
         object-fit: cover;
         width: auto;
         height: 100%;
-        filter: grayscale(100%) contrast(1) brightness(50%);
       }
     }
   }
@@ -294,7 +286,7 @@ const Projects = () => {
 
   useEffect(() => {
     scrollRevealing.reveal(revealTitle.current, scrollRevealConfig());
-    revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
+    revealProjects.current.forEach((ref, i) => scrollRevealing.reveal(ref, scrollRevealConfig(i * 100)));
   }, []);
 
   return (
@@ -308,7 +300,6 @@ const Projects = () => {
           featuredProjects.map(({ node }, i) => {
             const { frontmatter, html } = node;
             const { external, title, tech, github, cover, cta } = frontmatter;
-            const image = getImage(cover);
 
             return (
               <Projects_Styled key={i} ref={el => (revealProjects.current[i] = el)}>
@@ -355,7 +346,7 @@ const Projects = () => {
 
                 <div className="project-image">
                   <a href={external ? external : github ? github : '#'}>
-                    <GatsbyImage image={image} alt={title} className="img" />
+                    <img src={cover} alt={title} className="img" />
                   </a>
                 </div>
               </Projects_Styled>

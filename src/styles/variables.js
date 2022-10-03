@@ -5,7 +5,7 @@ import { css } from 'styled-components';
 //light-navy -> snow
 //lightest-navy -> ivory
 //navy-shadow -> white-shadow
-//lightest-slate -> strong-black: #ffffff;
+//lightest-slate -> strong-black: #000;
 //light-slate -> browny: #ad7032;
 //green -> violet: #663399;
 //green-tint -> violet-tint: rgba(255, 100, 209, 0.1)

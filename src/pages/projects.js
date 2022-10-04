@@ -3,8 +3,8 @@ import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { Layout } from '../components';
-import Icon from '../components/icons';
-import { scrollRevealConfig } from '../../config';
+import Icon from '../components/icons/icons';
+import { scrollRevealConfig } from '../config';
 import ScrollReveal from 'scrollreveal';
 
 const scrollRevealing = typeof window === 'undefined' ? null : ScrollReveal();
@@ -25,7 +25,7 @@ const Table_Styled = styled.div`
     tbody tr {
       &:hover,
       &:focus {
-        background-color: var(--light-navy);
+        background-color: var(--ivory);
       }
     }
     th,

@@ -5,14 +5,15 @@ import Side from './side';
 
 const Email_Styled = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: ${props => (props.isMainPage ?  'row' : 'column')};
   align-items: center;
+  justify-content: center;
   position: relative;
   &:after {
     content: '';
     display: block;
-    width: 90px;
-    height: 1px;
+    width: ${props => (props.isMainPage ?  '90px' : '1px')};
+    height: ${props => (props.isMainPage ?  '1px' : '90px')};
     margin: 0 auto;
     background-color: var(--violet);
   }
@@ -23,6 +24,7 @@ const Email_Styled = styled.div`
     font-size: var(--fz-xxs);
     line-height: var(--fz-lg);
     letter-spacing: 0.1em;
+    writing-mode: ${props => (props.isMainPage ?  'horizontal-tb' : 'vertical-rl')};
     &:hover,
     &:focus {
       transform: translateY(-3px);
@@ -30,7 +32,6 @@ const Email_Styled = styled.div`
   }
   @media (max-width: 1600px) {
       flex-direction: column;
-      justify-content: center;
       &:after {
         width: 1px;
         height: 90px;
@@ -43,7 +44,7 @@ const Email_Styled = styled.div`
 
 const Email = ({ isMainPage }) => (
   <Side isMainPage={isMainPage} orientation="bottom">
-    <Email_Styled>
+    <Email_Styled isMainPage={isMainPage}>
       <a href={`mailto:${email}`}>{email}</a>
     </Email_Styled>
   </Side>

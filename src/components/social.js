@@ -6,22 +6,23 @@ import Icon from './icons/icons';
 
 const Social_Styled = styled.ul`
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: ${props => (props.isMainPage ?  'row-reverse' : 'column')};
   align-items: center;
+  justify-content: center;
   margin: 0;
   padding: 0;
   list-style: none;
   &:after {
     content: '';
     display: block;
-    width: 90px;
-    height: 1px;
+    width: ${props => (props.isMainPage ?  '90px' : '1px')};
+    height: ${props => (props.isMainPage ?  '1px' : '90px')};
     margin: 0 auto;
     background-color: var(--violet);
   }
   li {
     &:last-of-type {
-      margin: 0 0 0 20px;
+      margin: 0 0 ${props => (props.isMainPage ?  '0' : '20px')} ${props => (props.isMainPage ?  '20px' : '0')};
     }
     a {
       padding: 10px;
@@ -37,7 +38,6 @@ const Social_Styled = styled.ul`
   }
   @media (max-width: 1600px) {
     flex-direction: column;
-    justify-content: center;
     &:after {
       width: 1px;
       height: 90px;
@@ -52,7 +52,7 @@ const Social_Styled = styled.ul`
 
 const Social = ({ isMainPage }) => (
   <Side isMainPage={isMainPage} orientation="top">
-    <Social_Styled>
+    <Social_Styled isMainPage={isMainPage}>
       {socialMedia &&
         socialMedia.map(({ url, name }, i) => (
           <li key={i}>

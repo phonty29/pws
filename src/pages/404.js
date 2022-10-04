@@ -1,49 +1,56 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import styled from 'styled-components';
+import { Layout } from '../components';
 
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
+const Main_Styled = styled.main`
+  ${({ theme }) => theme.mixins.flexCenter};
+  flex-direction: column;
+`;
+const Title_Styled = styled.h1`
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: clamp(100px, 25vw, 200px);
+  line-height: 1;
+`;
+const Subtitle_Styled = styled.h2`
+  font-size: clamp(30px, 5vw, 50px);
+  font-weight: 400;
+`;
+const Home_Styled = styled.a`
+  ${({ theme }) => theme.mixins.bigButton};
+  margin-top: 40px;
+`;
 
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
+const Error = ({ location }) => {
+  const [isMounted, setIsMounted] = useState(false);
 
-const NotFoundPage = () => {
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsMounted(true), 1000);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  const content = (
+    <Main_Styled className="fillHeight">
+      <Title_Styled>404</Title_Styled>
+      <Subtitle_Styled>Page Not Found</Subtitle_Styled>
+      <Home_Styled href="/" target="_blank">Go Home</Home_Styled>
+    </Main_Styled>
+  );
+
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-  )
-}
+    <Layout location={location}>
+      <Helmet title="Page Not Found" />
+        <TransitionGroup component={null}>
+          {isMounted && (
+            <CSSTransition timeout={500} classNames="fadeup">
+              {content}
+            </CSSTransition>
+          )}
+        </TransitionGroup>
+    </Layout>
+  );
+};
 
-export default NotFoundPage
-
-export const Head = () => <title>Not found</title>
+export default Error;

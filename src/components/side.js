@@ -3,13 +3,13 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 
 const Side_Styled = styled.div`
-  height: 40px;
-  width: auto;
+  height: ${props => (props.isMainPage ? '40px' : 'auto')};
+  width: ${props => (props.isMainPage ? 'auto' : '40px')};
   position: fixed;
-  left: ${props => (props.orientation === 'top' ? '0' : 'auto')};
-  right: ${props => (props.orientation === 'top' ? 'auto' : '0')};
-  top: ${props => (props.orientation === 'top' ? '100px' : 'auto')};
-  bottom: ${props => (props.orientation === 'top' ? 'auto' : '50px')};
+  left: ${props => (props.isMainPage ? (props.orientation === 'top' ? '0' : 'auto') : (props.orientation === 'top' ? '20px' : 'auto'))};
+  right: ${props => (props.isMainPage ? (props.orientation === 'top' ? 'auto' : '0') : (props.orientation === 'top' ? 'auto' : '10px'))};
+  top: ${props => (props.isMainPage ? (props.orientation === 'top' ? '100px' : 'auto') : 'auto')};
+  bottom: ${props => (props.isMainPage ? (props.orientation === 'top' ? 'auto' : '50px') : 0)};
   z-index: 10;
   color: var(--violet);
   @media (max-width: 1600px) {
@@ -27,7 +27,6 @@ const Side_Styled = styled.div`
 
 const Side = ({ children, isMainPage, orientation }) => {
   const [isMounted, setIsMounted] = useState(isMainPage === true ? false : true);
-
   useEffect(() => {
     if (!isMainPage) {
       return;
@@ -37,7 +36,7 @@ const Side = ({ children, isMainPage, orientation }) => {
   }, []);
 
   return (
-    <Side_Styled orientation={orientation}>
+    <Side_Styled isMainPage={isMainPage} orientation={orientation}>
         <TransitionGroup component={null}>
           {isMounted && (
             <CSSTransition classNames={isMainPage ? 'fade' : ''} timeout={isMainPage ? 2000 : 0}>

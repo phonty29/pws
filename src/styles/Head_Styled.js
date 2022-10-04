@@ -40,23 +40,23 @@ const GlobalStyle = createGlobalStyle`
     focus.
   */
   :focus-visible {
-    outline: 2px dashed var(--green);
+    outline: 2px dashed var(--violet);
     outline-offset: 3px;
   }
   /* Scrollbar Styles */
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--dark-slate) var(--navy);
+    scrollbar-color: var(--violet-tint) var(--whitesmoke);
   }
   ::-webkit-scrollbar {
     width: 12px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--navy);
+    background: var(--whitesmoke);
   }
   ::-webkit-scrollbar-thumb {
-    background-color: var(--dark-slate);
-    border: 3px solid var(--navy);
+    background-color: var(--violet-tint);
+    border: 3px solid var(--whitesmoke);
     border-radius: 10px;
   }
   body {
@@ -148,9 +148,26 @@ const GlobalStyle = createGlobalStyle`
   }
   .section-header {
     display: flex;
+    text-align: center;
+    margin-bottom: 20px;
     align-items: center;
     & > * {
       margin-right: 20px;
+    }
+  }
+  @media (max-width: 1080px) {
+    .section-header {
+      flex-direction: column;
+    }
+  }
+  @media (max-width: 768px) {
+    .section-header {
+      flex-direction: row;
+    }
+  }
+  @media (max-width: 590px) {
+    .section-header {
+      flex-direction: column;
     }
   }
   .big-heading {

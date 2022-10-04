@@ -13,11 +13,12 @@ const Side_Styled = styled.div`
   z-index: 10;
   color: var(--violet);
   @media (max-width: 1600px) {
-    width: ${props => (props.orientation === 'top' ? '40px' : 'auto')};
-    height: ${props => (props.orientation === 'top' ? 'auto' : '40px')};;
+    width: 40px;
+    height: auto;
     top: auto;
-    bottom: ${props => (props.orientation === 'top' ? '0' : '25px')};
+    bottom: 0;
     left: ${props => (props.orientation === 'top' ? '20px' : 'auto')};
+    right: ${props => (props.orientation === 'top' ? 'auto' : '10px')};
   }
   @media (max-width: 768px) {
     display: none;

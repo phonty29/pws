@@ -41,6 +41,10 @@ const Text_Styled = styled.div`
         line-height: 12px;
       }
     }
+    @media (max-width: 300px) {
+      display: flex;
+      flex-direction: column;
+    }
   }
 `;
 const Picture_Styled = styled.div`
@@ -48,13 +52,21 @@ const Picture_Styled = styled.div`
   max-width: 300px;
   @media (max-width: 768px) {
     margin: 50px auto 0;
-    width: 70%;
+  }
+  @media (max-width: 500px) {
+    display: grid;
+    place-items: center;
+    margin: 50px auto;
   }
   .wrapper {
     background-color: transparent;
     perspective: 1000px;
     width: 300px;
     height: 300px;
+    @media (max-width: 300px) {
+      width: 200px;
+      height: 200px;
+    }
   }
   .img-inner {
     display: block;
@@ -79,6 +91,10 @@ const Picture_Styled = styled.div`
     }
     .img-back {
         transform: rotateY(180deg); 
+        img {
+          max-height: 100%;
+          object-fit: cover;
+        }
     }
     .img-front {
         border: 1px solid var(--violet);

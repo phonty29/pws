@@ -5,14 +5,14 @@ import { Hero, About, Jobs, Blog, Projects, Contact } from '../components/sectio
 const IndexPage = ({location}) => {
   return (
     <Layout location={location}>
-      <div className="fillHeight">
+      <main className="fillHeight">
         <Hero location={location}/>
         <About/>
         <Jobs/>
         <Blog/>
         <Projects/>
         <Contact/>
-      </div>
+      </main>
     </Layout>
   )
 }

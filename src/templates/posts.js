@@ -7,6 +7,7 @@ import { Layout } from '../components';
 
 const Post_Styled = styled.main`
   max-width: 1000px;
+  padding: 200px 150px 50px 150px;
 `;
 const Header_Styled = styled.header`
   margin-bottom: 50px;

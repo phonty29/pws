@@ -28,6 +28,17 @@ const Email_Styled = styled.div`
       transform: translateY(-3px);
     }
   }
+  @media (max-width: 1600px) {
+      flex-direction: column;
+      justify-content: center;
+      &:after {
+        width: 1px;
+        height: 90px;
+      }
+      a {
+        writing-mode: vertical-rl;
+      }
+  }
 `;
 
 const Email = ({ isMainPage }) => (

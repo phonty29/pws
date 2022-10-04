@@ -113,7 +113,7 @@ const Projects_Styled = styled.li`
       margin: 0 0 20px;
     }
     @media (max-width: 768px) {
-      color: var(--white);
+      color: var(--strong-black);
       a {
         position: static;
         &:before {
@@ -150,7 +150,7 @@ const Projects_Styled = styled.li`
       ${({ theme }) => theme.mixins.inlineLink};
     }
     strong {
-      color: var(--white);
+      color: var(--strong-black);
       font-weight: normal;
     }
   }

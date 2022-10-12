@@ -89,14 +89,14 @@ const Picture_Styled = styled.div`
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
     }
-    .img-back {
-        transform: rotateY(180deg); 
+    .img-front {
         img {
           max-height: 100%;
           object-fit: cover;
         }
     }
-    .img-front {
+    .img-back {
+        transform: rotateY(180deg); 
         border: 1px solid var(--violet);
         background: var(--violet-tint);
         display: grid;
@@ -154,11 +154,11 @@ const About = () => {
           <div className="wrapper">
             <div className="img-inner">
                 <div className="img-front">
-                    <h1>Don't look at me</h1> 
-                </div>
-                <div className="img-back">
                     <img src="./me.jpg" className="img" width={300} alt="Headshot"/>
-                </div>                
+                </div> 
+                <div className="img-back">
+                    <h1>Don't look at me</h1> 
+                </div>               
             </div>
           </div>
         </Picture_Styled>

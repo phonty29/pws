@@ -148,26 +148,30 @@ const GlobalStyle = createGlobalStyle`
   }
   .section-header {
     display: flex;
-    text-align: center;
+    text-align: left;
+    justify-content: flex-start;
+    align-items: flex-end;
     margin-bottom: 20px;
-    align-items: center;
+    & > h2 {
+      margin-bottom: 0;
+    }
     & > * {
       margin-right: 20px;
     }
   }
-  @media (max-width: 1080px) {
-    .section-header {
-      flex-direction: column;
-    }
-  }
   @media (max-width: 768px) {
     .section-header {
-      flex-direction: row;
-    }
-  }
-  @media (max-width: 590px) {
-    .section-header {
       flex-direction: column;
+      align-items: flex-start;
+      a.inline-link {
+        text-decoration: underline;
+      }
+      & > h2 {
+        margin-bottom: 20px;
+      }
+      & > * {
+        margin-right: 0;
+      }
     }
   }
   .big-heading {

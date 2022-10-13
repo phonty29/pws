@@ -13,6 +13,12 @@ const Main_Styled = styled.main`
     span {
       color: var(--browny);
     }
+    @media (max-width: 768px) {
+      margin-bottom: 75px;
+    }
+    @media (max-width: 520px) {
+      margin-bottom: 50px;
+    }
   }
   footer {
     ${({ theme }) => theme.mixins.flexBetween};

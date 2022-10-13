@@ -8,14 +8,17 @@ import { Layout } from '../components';
 const Post_Styled = styled.main`
   max-width: 1000px;
   padding: 200px 150px 50px 150px;
+  .medium-heading {
+    color: var(--strong-black);
+  }
   @media (max-width: 768px) {
-    padding: 100px 75px 25px 75px;
+    padding: 150px 75px 25px 75px;
   }
   @media (max-width: 768px) {
     padding: 100px 75px 25px 75px;
   }
   @media (max-width: 520px) {
-    padding: 50px 30px 15px 30px;
+    padding: 75px 20px 15px 20px;
   }
 `;
 const Header_Styled = styled.header`

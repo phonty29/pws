@@ -28,6 +28,7 @@ const Header_Styled = styled.header`
   }
   @media (max-width: 768px) {
     padding: 0 25px;
+    height: 50px;
   }
   @media (prefers-reduced-motion: no-preference) {
     ${props =>
@@ -76,7 +77,7 @@ const Links_Styled = styled.div`
     li {
       margin: 0 5px;
       position: relative;
-      font-size: var(--fz-md);
+      font-size: var(--fz-lg);
       a {
         color: var(--strong-black);
         padding: 10px;
@@ -91,9 +92,9 @@ const Links_Styled = styled.div`
     margin-left: 15px;
     font-size: var(--fz-md);
   }
-  @media (max-width: 1600px) {
+  @media (max-width: 768px) {
     ol li {
-      font-size: var(--fz-sm);
+      font-size: var(--fz-md);
     }
   }
 `;

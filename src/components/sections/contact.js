@@ -15,7 +15,7 @@ const Contact_Styled = styled.section`
   .overline {
     display: block;
     margin-bottom: 20px;
-    color: var(--violet);
+    color: var(--greeny);
     font-family: var(--font-mono);
     font-size: var(--fz-md);
     font-weight: 400;
@@ -29,6 +29,7 @@ const Contact_Styled = styled.section`
   }
   .title {
     font-size: clamp(40px, 5vw, 60px);
+    color: var(--violet);
   }
   .email-link {
     ${({ theme }) => theme.mixins.bigButton};

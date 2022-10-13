@@ -164,7 +164,7 @@ const Projects_Styled = styled.li`
     list-style: none;
     li {
       margin: 0 20px 5px 0;
-      color: var(--browny);
+      color: var(--greeny);
       font-family: var(--font-mono);
       font-size: var(--fz-xs);
       white-space: nowrap;

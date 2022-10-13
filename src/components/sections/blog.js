@@ -94,7 +94,7 @@ const Post_Styled = styled.li`
     font-size: 17px;
   }
   .post__date {
-    color: var(--browny);
+    color: var(--greeny);
     font-family: var(--font-mono);
     font-size: var(--fz-xxs);
     text-transform: uppercase;

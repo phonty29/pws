@@ -155,13 +155,14 @@ const Panel_Styled = styled.div`
     font-size: var(--fz-xxl);
     font-weight: 500;
     line-height: 1.3;
+    color: var(--strong-black);
     .company {
       color: var(--violet);
     }
   }
   .range {
     margin-bottom: 25px;
-    color: var(--browny);
+    color: var(--greeny);
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
   }
@@ -242,7 +243,9 @@ const Jobs = () => {
 
   return (
     <Jobs_Styled id="jobs" ref={revealContainer}>
-      <h2>My job experience</h2>
+      <div className="section-header">
+        <h2>My job experience</h2>
+      </div>
 
       <div className="inner">
         <List_Styled role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyDown(e)}>

@@ -154,9 +154,17 @@ const GlobalStyle = createGlobalStyle`
     margin-bottom: 20px;
     & > h2 {
       margin-bottom: 0;
+      color: var(--violet);
     }
     & > * {
       margin-right: 20px;
+    }
+    & > .archive-link {
+      color: var(--greeny);
+      &:hover,
+      &:active {
+        color: var(--greeny);
+      }
     }
   }
   @media (max-width: 768px) {

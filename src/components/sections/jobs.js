@@ -31,7 +31,6 @@ const Jobs_Styled = styled.section`
     @media (max-width: 600px) {
       display: block;
     }
-    // Prevent container from jumping
     @media (min-width: 700px) {
       height: fit-content;
     }

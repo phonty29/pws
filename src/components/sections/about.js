@@ -63,7 +63,11 @@ const Picture_Styled = styled.div`
     perspective: 1000px;
     width: 300px;
     height: 300px;
-    @media (max-width: 300px) {
+    @media (max-width: 480px) {
+      width: 250px;
+      height: 250px;
+    }
+    @media (max-width: 320px) {
       width: 200px;
       height: 200px;
     }

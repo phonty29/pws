@@ -14,7 +14,14 @@ const Hero_Styled = styled.section`
   min-height: 100vh;
   padding: 0 0 100px 0;
   @media (max-width: 480px) {
-    background-position: right;
+    background-position: 30%;
+    padding: 0 0 50px 0;
+  }
+  @media (max-height: 650px) {
+    padding: 0 0 50px 0;
+  }
+  @media (max-height: 550px) {
+    padding: 0;
   }
   @media (max-width: 480px) and (min-height: 700px) {
     padding-bottom: 10vh;
@@ -37,6 +44,9 @@ const Hero_Styled = styled.section`
   p {
     margin: 20px 0 0;
     max-width: 540px;
+    @media (max-height: 550px) {
+      font-size: var(--fz-md);
+    }
   }
 `;
 

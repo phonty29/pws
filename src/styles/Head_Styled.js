@@ -56,7 +56,7 @@ const GlobalStyle = createGlobalStyle`
   }
   ::-webkit-scrollbar-thumb {
     background-color: var(--violet-tint);
-    border: 3px solid var(--whitesmoke);
+    border: 2px solid var(--whitesmoke);
     border-radius: 10px;
   }
   body {

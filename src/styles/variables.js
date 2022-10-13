@@ -9,16 +9,23 @@ import { css } from 'styled-components';
 //light-slate -> browny: #ad7032;
 //green -> violet: #663399;
 //green-tint -> violet-tint: rgba(255, 100, 209, 0.1)
+
+//rgb(107, 196, 68);
 const variables = css`
   :root {
-    --white: #ffffff;
+    --white: #fefefe;
     --whitesmoke: #f5f5f5;
     --snow: #FFFAFA;
     --ivory: #FFFFF0;
     --white-shadow: rgba(20,20,20,0.4);
     --dark-slate: #495670;
     --yellow: #ebe30c;
-    --browny: #ad7032;
+    // --browny: #ad7032;
+
+
+    --browny: rgb(31, 126, 104);
+
+
     --strong-black: #050505;
     --violet: #663399;
     --violet-tint: rgba(255, 100, 209, 0.5);

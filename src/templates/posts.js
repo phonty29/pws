@@ -8,6 +8,15 @@ import { Layout } from '../components';
 const Post_Styled = styled.main`
   max-width: 1000px;
   padding: 200px 150px 50px 150px;
+  @media (max-width: 768px) {
+    padding: 100px 75px 25px 75px;
+  }
+  @media (max-width: 768px) {
+    padding: 100px 75px 25px 75px;
+  }
+  @media (max-width: 520px) {
+    padding: 50px 30px 15px 30px;
+  }
 `;
 const Header_Styled = styled.header`
   margin-bottom: 50px;
@@ -43,7 +52,7 @@ const Post = ({ data, location }) => {
       <Post_Styled>
         <span className="breadcrumb">
           <span className="arrow">&larr;</span>
-          <Link to="/blogs">All posts</Link>
+          <Link to="/blog">All posts</Link>
         </span>
 
         <Header_Styled>
@@ -60,7 +69,7 @@ const Post = ({ data, location }) => {
             {tags &&
               tags.length > 0 &&
               tags.map((tag, i) => (
-                <Link key={i} to={`/blogs/tags/${kebabCase(tag)}/`} className="tag">
+                <Link key={i} to={`/blog/tags/${kebabCase(tag)}/`} className="tag">
                   #{tag}
                 </Link>
               ))}

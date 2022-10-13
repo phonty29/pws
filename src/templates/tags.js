@@ -51,7 +51,7 @@ const Tags = ({ pageContext, data, location }) => {
       <Tags_Styled>
         <span className="breadcrumb">
           <span className="arrow">&larr;</span>
-          <Link to="/blogs">All posts</Link>
+          <Link to="/blog">All posts</Link>
         </span>
 
         <h1>
@@ -81,7 +81,7 @@ const Tags = ({ pageContext, data, location }) => {
                   {tags &&
                     tags.length > 0 &&
                     tags.map((tag, i) => (
-                      <Link key={i} to={`/blogs/posts/${kebabCase(tag)}/`} className="tag">
+                      <Link key={i} to={`/blog/posts/${kebabCase(tag)}/`} className="tag">
                         #{tag}
                       </Link>
                     ))}

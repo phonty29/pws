@@ -7,6 +7,6 @@ range: 'October 2022 - Present'
 url: 'https://www.a1qa.com/'
 ---
 
-- Blah blah blah
-- Manually tested sites in various browsers and mobile devices to ensure cross-browser compatibility and responsiveness
-- Did a great job. Everyone is satisfied!
+- Learning the theory of automation testing and obtaining skills for QA-engineer.
+- Make automated tests using Java (TestNG) and Selenium WebDriver.
+- Learn about different tools for testing such as Docker, CI/CD Jenkins and etc.

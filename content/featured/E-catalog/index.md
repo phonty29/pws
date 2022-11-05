@@ -12,5 +12,5 @@ tech:
   - Draft JS
 ---
 
-This was my test-task for company [Kami Group](https://kamiqr.kz/). Applying for it was not successful, but application works and looks fine. It uses microservice archytecture, 
+This was my test-task for company [Kami Group](https://kamiqr.kz/). Applying for it was not successful, but application works and looks fine. It uses client-server archytecture, 
 so I also wrote the backend of it.

@@ -101,12 +101,9 @@ const Picture_Styled = styled.div`
     }
     .img-back {
         transform: rotateY(180deg); 
-        border: 1px solid var(--violet);
-        background: var(--violet-tint);
-        display: grid;
-        place-items: center;
-        h1 {
-            color: var(--violet);
+        img {
+          max-height: 100%;
+          object-fit: cover;
         }
     }
 `;
@@ -118,15 +115,12 @@ const About = () => {
     scrollRevealing.reveal(revealContainer.current, scrollRevealConfig());
   }, []);
 
-  const skills = ['JavaScript', 'TypeScript', 'React', 'Redux', 'Node.js', 'Express JS', 'Testing'];
+  const skills = ['TypeScript', 'React', 'Java', 'Next.js', 'Express.js', 'Redux', 'Selenium WebDriver'];
 
   return (
     <About_Styled id="about" ref={revealContainer}>
       <div className="section-header">
         <h2>Some information about me</h2>
-        <a className="inline-link archive-link" href="/about" target="_blank">
-            more about me
-        </a>
       </div>
 
       <div className="inner">
@@ -161,7 +155,7 @@ const About = () => {
                     <img src="./me.jpg" className="img" width={300} alt="Headshot"/>
                 </div> 
                 <div className="img-back">
-                    <h1>Don't look at me</h1> 
+                  <img src="./me2.jpg" className="img" width={300} alt="Headshot"/>
                 </div>               
             </div>
           </div>

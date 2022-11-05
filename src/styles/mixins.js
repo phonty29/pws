@@ -63,17 +63,17 @@ const mixins = {
     text-decoration-skip-ink: auto;
     position: relative;
     transition: var(--transition);
-    color: var(--violet);
+    color: var(--green);
     &:hover,
     &:focus,
     &:active {
-      color: var(--violet);
+      color: var(--green);
       outline: 0;
       &:after {
         width: 100%;
       }
       & > * {
-        color: var(--violet) !important;
+        color: var(--green) !important;
         transition: var(--transition);
       }
     }

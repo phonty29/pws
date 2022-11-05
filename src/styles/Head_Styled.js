@@ -171,9 +171,6 @@ const GlobalStyle = createGlobalStyle`
     .section-header {
       flex-direction: column;
       align-items: flex-start;
-      a.inline-link {
-        text-decoration: underline;
-      }
       & > h2 {
         margin-bottom: 20px;
       }

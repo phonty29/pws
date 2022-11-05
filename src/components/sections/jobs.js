@@ -207,20 +207,17 @@ const Jobs = () => {
       tabs.current[tabFocus].focus();
       return;
     }
-    // If we're at the end, go to the start
+
     if (tabFocus >= tabs.current.length) {
       setTabFocus(0);
     }
-    // If we're at the start, move to the end
     if (tabFocus < 0) {
       setTabFocus(tabs.current.length - 1);
     }
   };
 
-  // Only re-run the effect if tabFocus changes
   useEffect(() => focusTab(), [tabFocus]);
 
-  // Focus on tabs when using up & down arrow keys
   const onKeyDown = e => {
     switch (e.key) {
       case KEY_CODES.ARROW_UP: {

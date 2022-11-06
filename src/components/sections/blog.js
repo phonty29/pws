@@ -171,7 +171,7 @@ const Blog = () => {
                             <IconBookmark />
                           </div>
                           <h5 className="post__title">
-                            <a href={slug} target="_blank">{title}</a>
+                            <a href={slug}>{title}</a>
                           </h5>
                         </header>
     
@@ -180,7 +180,7 @@ const Blog = () => {
                           <ul className="post__tags">
                             {tags.map((tag, i) => (
                               <li key={i}>
-                                <a href={`/blog/tags/${kebabCase(tag)}/`} className="inline-link" target="_blank">
+                                <a href={`/blog/tags/${kebabCase(tag)}/`} className="inline-link">
                                   #{tag}
                                 </a>
                               </li>

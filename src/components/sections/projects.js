@@ -301,7 +301,7 @@ const Projects = () => {
     <section id="projects">
       <div className="section-header">
           <h2>Some Things I’ve Built</h2>
-          <a className="inline-link archive-link" href="/projects" target="_blank">
+          <a className="inline-link archive-link" href="/projects">
               view all my projects
           </a>
         </div>

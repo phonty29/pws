@@ -163,7 +163,7 @@ const GlobalStyle = createGlobalStyle`
       color: var(--greeny);
       &:hover,  &:focus, &:active {
         text-decoration: none;
-        color: var(--green);
+        color: var(--greeny);
       }
     }
   }

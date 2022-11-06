@@ -150,7 +150,7 @@ const Blog = () => {
       <Blog_Styled id="blog" ref={revealContainer}>
         <div className="section-header">
           <h2>I like to share things in my head</h2>
-          <a className="inline-link archive-link" href="/blog" target="_blank">
+          <a className="inline-link archive-link" href="/blog">
               see my blog
           </a>
         </div>

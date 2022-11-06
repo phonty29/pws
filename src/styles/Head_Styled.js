@@ -161,6 +161,10 @@ const GlobalStyle = createGlobalStyle`
     }
     & > .archive-link {
       color: var(--greeny);
+      &:hover,  &:focus, &:active {
+        text-decoration: none;
+        color: var(--green);
+      }
     }
   }
   @media (max-width: 768px) {

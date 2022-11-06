@@ -26,6 +26,10 @@ module.exports = {
   
   navbarLinks: [
     {
+      name: 'Home',
+      url: '/#',
+    },
+    {
       name: 'About',
       url: '/#about',
     },

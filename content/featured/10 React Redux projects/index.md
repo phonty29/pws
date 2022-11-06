@@ -5,9 +5,8 @@ cover: './demo.png'
 github: 'https://github.com/phonty29/10-RRP/'
 external: 'https://celebrated-kleicha-7e4762.netlify.app/entry/' 
 tech:
-  - VS Code
   - React JS
-  - Redux
+  - Redux Toolkit
   - Bootstrap
   - Sass
 ---
